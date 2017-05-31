@@ -31,8 +31,12 @@ class Reserved(models.Model):
         return 'From '+str(self.beginDate)+' to '+str(self.endDate)+' : '+str(self.userName)
 
     def save(self, *args, **kwargs):
-        if(self.beginDate > self.endDate):
+        if self.beginDate > self.endDate:
             raise ValidationError('Begin date cannot be bigger then end Date.')
+        elif  self.flatName.canRent == False:
+            raise ValidationError(' You cannnot rent this flat')
+        elif self.beginDate < self.flatName.openTime and self.beginDate < self.flatName.openTimeEnd:
+            raise ValidationError('Flat is not avaible in these dayes')
         else:
             return super(Reserved, self).save(*args, **kwargs)
 # Create your models here.
