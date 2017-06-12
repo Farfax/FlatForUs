@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from datetime import date
 
 class Town(models.Model):
-    townName= models.CharField(max_length = 60)
+    townName= models.CharField(max_length = 60, unique=True)
 
     def __str__(self):
         return str(self.townName)

@@ -1,0 +1,14 @@
+{% extends "admin/base_site.html" %}
+{% block title %} Home {% endblock %}
+{% block branding %} <h1> FlatForUs </h1>  {% endblock %}
+{% block content %}
+{% if flat_list %}
+    <ul>
+    {% for flat in flat_list %}
+	<li><p >{{ flat.flatName }}</p></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "Reserver/base_client_site.html" %}
+{% block title %} Reserver {% endblock %}
+
+{% block content %}
+{% if town_list %}
+    <ul>
+    {% for town in town_list %}
+    	<li><a href= "{% url 'Reserver:detail' town.townName %}">{{ town.townName }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Sorry, but we can't find available town. Try soon.</p>
+{% endif %}
+{% endblock content %}

@@ -43,7 +43,7 @@ class FlatAdmin(admin.ModelAdmin):
         else:
             message= "%s Flats were" % updated
         self.message_user(request, "%s successfully set as rentable." % message)
-    set_open.short_descripiton = "Mark selected dates as rentable"
+    set_open.short_description = "Mark selected dates as rentable"
 
     def set_busy(self, request, queryset):
         updated = queryset.update(canRent = False)

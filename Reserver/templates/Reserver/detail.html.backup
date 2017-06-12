@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% block content %}
+{% if flat_list %}
+	<ul>
+		{% for flat in flat_list %}
+		<li><a href = "{% url 'Reserver:resever' flat.flatName %}">{{ flat.flatName }}</a></li>
+	</ul>
+{% else %}
+	<p> Sorry, but we can't find available flat in Your town. Try another one.</p>
+{% endif %}
+{% endblock %}
+
